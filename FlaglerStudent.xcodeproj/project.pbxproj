@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D3ECBA32B72A08900B385EC /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3ECBA22B72A08900B385EC /* BudgetViewController.swift */; };
 		2DCC0F6B2B62C211003BD6BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCC0F6A2B62C211003BD6BA /* AppDelegate.swift */; };
 		2DCC0F6D2B62C211003BD6BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCC0F6C2B62C211003BD6BA /* SceneDelegate.swift */; };
 		2DCC0F6F2B62C211003BD6BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCC0F6E2B62C211003BD6BA /* ViewController.swift */; };
@@ -16,7 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2DCC0F672B62C211003BD6BA /* Flagler Student.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flagler Student.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D3ECBA22B72A08900B385EC /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
+		2DCC0F672B62C211003BD6BA /* FlaglerStudent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlaglerStudent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DCC0F6A2B62C211003BD6BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DCC0F6C2B62C211003BD6BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2DCC0F6E2B62C211003BD6BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +50,7 @@
 		2DCC0F682B62C211003BD6BA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2DCC0F672B62C211003BD6BA /* Flagler Student.app */,
+				2DCC0F672B62C211003BD6BA /* FlaglerStudent.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,6 +61,7 @@
 				2DCC0F6A2B62C211003BD6BA /* AppDelegate.swift */,
 				2DCC0F6C2B62C211003BD6BA /* SceneDelegate.swift */,
 				2DCC0F6E2B62C211003BD6BA /* ViewController.swift */,
+				2D3ECBA22B72A08900B385EC /* BudgetViewController.swift */,
 				2DCC0F702B62C211003BD6BA /* Main.storyboard */,
 				2DCC0F732B62C214003BD6BA /* Assets.xcassets */,
 				2DCC0F752B62C214003BD6BA /* LaunchScreen.storyboard */,
@@ -70,9 +73,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2DCC0F662B62C211003BD6BA /* Flagler Student */ = {
+		2DCC0F662B62C211003BD6BA /* FlaglerStudent */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2DCC0F7B2B62C214003BD6BA /* Build configuration list for PBXNativeTarget "Flagler Student" */;
+			buildConfigurationList = 2DCC0F7B2B62C214003BD6BA /* Build configuration list for PBXNativeTarget "FlaglerStudent" */;
 			buildPhases = (
 				2DCC0F632B62C211003BD6BA /* Sources */,
 				2DCC0F642B62C211003BD6BA /* Frameworks */,
@@ -82,9 +85,9 @@
 			);
 			dependencies = (
 			);
-			name = "Flagler Student";
+			name = FlaglerStudent;
 			productName = "Flagler Student";
-			productReference = 2DCC0F672B62C211003BD6BA /* Flagler Student.app */;
+			productReference = 2DCC0F672B62C211003BD6BA /* FlaglerStudent.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +105,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2DCC0F622B62C211003BD6BA /* Build configuration list for PBXProject "Flagler Student" */;
+			buildConfigurationList = 2DCC0F622B62C211003BD6BA /* Build configuration list for PBXProject "FlaglerStudent" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +118,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2DCC0F662B62C211003BD6BA /* Flagler Student */,
+				2DCC0F662B62C211003BD6BA /* FlaglerStudent */,
 			);
 		};
 /* End PBXProject section */
@@ -141,6 +144,7 @@
 				2DCC0F6F2B62C211003BD6BA /* ViewController.swift in Sources */,
 				2DCC0F6B2B62C211003BD6BA /* AppDelegate.swift in Sources */,
 				2DCC0F6D2B62C211003BD6BA /* SceneDelegate.swift in Sources */,
+				2D3ECBA32B72A08900B385EC /* BudgetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +348,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2DCC0F622B62C211003BD6BA /* Build configuration list for PBXProject "Flagler Student" */ = {
+		2DCC0F622B62C211003BD6BA /* Build configuration list for PBXProject "FlaglerStudent" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2DCC0F792B62C214003BD6BA /* Debug */,
@@ -353,7 +357,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2DCC0F7B2B62C214003BD6BA /* Build configuration list for PBXNativeTarget "Flagler Student" */ = {
+		2DCC0F7B2B62C214003BD6BA /* Build configuration list for PBXNativeTarget "FlaglerStudent" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2DCC0F7C2B62C214003BD6BA /* Debug */,
