@@ -41,7 +41,7 @@ class BudgetViewController: UIViewController {
         let balance = tuition! - scholarship!
         
         //Output - it's best to use interpolation in Swift!
-        balanceLabel.text = "Welcome, \(name)! Your balance is: \(balance)"
+        balanceLabel.text = "Welcome, \(name)! Your balance is: \(balance.formatted(.currency(code:"USD")))"
         
     }
     
