@@ -8,7 +8,7 @@
 import UIKit
 
 
-class BudgetViewController: UIViewController {
+class BudgetViewController: UIViewController, UITextFieldDelegate {
 
     //Put the IBOutlet before the viewDidLoad
     
@@ -34,6 +34,13 @@ class BudgetViewController: UIViewController {
         
         //This can be used to initialize values or DB lookups
         honorSwitch.isOn = false
+        balanceLabel.isHidden = true
+        
+        //Hide/show virtual keyboard
+        nameTextField.delegate = self
+        tuitionTextField.delegate = self
+        scholarshipTextField.delegate  = self
+        gradeLevelTextField.delegate = self
         
     }
     
@@ -54,6 +61,7 @@ class BudgetViewController: UIViewController {
         balanceLabel.text = "Welcome, \(name)! Your balance is: \(balance.formatted(.currency(code:"USD")))"
         */
         
+        balanceLabel.isHidden = false
         if let name = nameTextField.text, !name.isEmpty, let gradeLevel = gradeLevelTextField.text, !gradeLevel.isEmpty{
             //Attempt to covert tuition and scholarship into double type, using optional binding)
             if let tuition = Double(tuitionTextField.text ?? ""), let scholarship = Double(scholarshipTextField.text ?? ""){
@@ -64,6 +72,24 @@ class BudgetViewController: UIViewController {
                 //implement the honor studnet discount
                 if honorSwitch.isOn {
                     balance = balance * (1 - 0.1)
+                }
+                
+                //implement the grade discount logic
+                let gradeLevel = gradeLevelTextField.text?.lowercased()
+                switch gradeLevel {
+                case "senior":
+                    //balance = balance * ( 1- 0.05) //reduce balance by 5%
+                    balance *= 0.95
+                case "junior":
+                    balance *= 0.97
+                case "sophmore":
+                    balance *= 0.98
+                case "freshman":
+                    balance *= 1.00
+                default:
+                    balanceLabel.text = "Please enter a valid grade"
+                    //print("Please enter a valid grade") //This will go to the console for debugging
+                    
                 }
                 
                 //make recommendation based the balance
@@ -84,7 +110,11 @@ class BudgetViewController: UIViewController {
         
     }
     
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Dismiss the keyboard
+        textField.resignFirstResponder()
+        return true
+    }
 
     /*
     // MARK: - Navigation
