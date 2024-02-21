@@ -39,18 +39,18 @@
                                 <color key="tintColor" red="0.48627454040000001" green="0.1019607931" blue="0.1686274707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1a-s6-hPF">
-                                <rect key="frame" x="186" y="370" width="78" height="35"/>
+                                <rect key="frame" x="169" y="370" width="113" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Submit"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Find Flagler"/>
                                 <connections>
-                                    <action selector="submitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6A0-Sd-VNL"/>
+                                    <action selector="mapSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AWb-PF-Yfh"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6r-A0-2eZ">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6r-A0-2eZ">
                                 <rect key="frame" x="20" y="614" width="390" height="235"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <standardMapConfiguration key="preferredConfiguration" elevationStyle="realistic" showsTraffic="YES"/>
+                                <hybridMapConfiguration key="preferredConfiguration" elevationStyle="realistic" showsTraffic="YES"/>
                             </mapView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IPR-pW-KfV">
                                 <rect key="frame" x="100" y="187" width="250" height="34"/>
@@ -77,6 +77,12 @@
                                     <segue destination="m9H-Ts-xma" kind="show" id="2ih-Tt-VZO"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cqw-Kg-IxY">
+                                <rect key="frame" x="75" y="264" width="301" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -84,6 +90,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="yVZ-h9-ftX"/>
                     <connections>
+                        <outlet property="addressTextField" destination="Cqw-Kg-IxY" id="XSk-hv-wsI"/>
+                        <outlet property="mapView" destination="P6r-A0-2eZ" id="y1o-Oc-AAY"/>
                         <outlet property="welcomeMsg" destination="ktz-OJ-koo" id="fFf-bk-kLa"/>
                     </connections>
                 </viewController>
