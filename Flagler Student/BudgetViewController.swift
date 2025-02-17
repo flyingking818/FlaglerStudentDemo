@@ -62,51 +62,66 @@ class BudgetViewController: UIViewController, UITextFieldDelegate {
         */
         
         balanceLabel.isHidden = false
-        if let name = nameTextField.text, !name.isEmpty, let gradeLevel = gradeLevelTextField.text, !gradeLevel.isEmpty{
-            //Attempt to covert tuition and scholarship into double type, using optional binding)
-            if let tuition = Double(tuitionTextField.text ?? ""), let scholarship = Double(scholarshipTextField.text ?? ""){
-                //main logic here
-                
-                var balance = tuition - scholarship
-                
-                //implement the honor studnet discount
-                if honorSwitch.isOn {
-                    balance = balance * (1 - 0.1)
-                }
-                
-                //implement the grade discount logic
-                let gradeLevel = gradeLevelTextField.text?.lowercased()
-                switch gradeLevel {
-                case "senior":
-                    //balance = balance * ( 1- 0.05) //reduce balance by 5%
-                    balance *= 0.95
-                case "junior":
-                    balance *= 0.97
-                case "sophmore":
-                    balance *= 0.98
-                case "freshman":
-                    balance *= 1.00
-                default:
-                    balanceLabel.text = "Please enter a valid grade"
-                    //print("Please enter a valid grade") //This will go to the console for debugging
-                    
-                }
-                
-                //make recommendation based the balance
-                if balance > 10000 {
-                    balanceLabel.text = "\(name), your balance is \(balance.formatted(.currency(code: "USD"))). Please consider a student loan."
-                }else{
-                    balanceLabel.text = "\(name), your balance is \(balance.formatted(.currency(code: "USD")))."
-                }              
-               
-                
-            }else{
-                balanceLabel.text = "Please enter valid numbers for tuition and scholarship!"
-            }
-            
-        }else{
-            balanceLabel.text = "Please enter valid name and grade!"
+        
+        // Validate name field
+        guard let name = nameTextField.text, !name.isEmpty else {
+            balanceLabel.text = "Please enter a valid name!"
+            return
         }
+        
+       
+        // Validate tuition field
+        guard let tuitionText = tuitionTextField.text, !tuitionText.isEmpty, let tuition = Double(tuitionText) else {
+            balanceLabel.text = "Please enter a valid tuition amount!"
+            return
+        }
+        
+        // Validate scholarship field
+        guard let scholarshipText = scholarshipTextField.text, !scholarshipText.isEmpty, let scholarship = Double(scholarshipText) else {
+            balanceLabel.text = "Please enter a valid scholarship amount!"
+            return
+        }
+        
+        // Validate grade level field
+        guard let gradeLevel = gradeLevelTextField.text, !gradeLevel.isEmpty else {
+            balanceLabel.text = "Please enter a valid grade level!"
+            return
+        }
+        
+        
+        // Calculate initial balance
+        var balance = tuition - scholarship
+        
+        // Apply honor student discount
+        if honorSwitch.isOn {
+            balance *= 0.90 // 10% discount
+        }
+        
+        // Normalize gradeLevel for comparison
+        let normalizedGradeLevel = gradeLevel.lowercased()
+        
+        // Apply grade-level discounts
+        switch normalizedGradeLevel {
+            case "senior":
+                balance *= 0.95 // 5% discount
+            case "junior":
+                balance *= 0.97 // 3% discount
+            case "sophomore":
+                balance *= 0.98 // 2% discount
+            case "freshman":
+                balance *= 1.00 // No discount
+            default:
+                balanceLabel.text = "Please enter a valid grade level!"
+                return
+        }
+        
+        // Display balance recommendation
+        if balance > 10_000 {
+            balanceLabel.text = "\(name), your balance is \(balance.formatted(.currency(code: "USD"))). Please consider a student loan."
+        } else {
+            balanceLabel.text = "\(name), your balance is \(balance.formatted(.currency(code: "USD")))."
+        }
+
         
     }
     
